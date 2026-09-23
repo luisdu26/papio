@@ -1,29 +1,73 @@
-# PAPIO Web Flasher
+# PAPIO — Bruce Mod avec IA & Jeux
 
-Flasheur web dédié au **LILYGO T-Embed CC1101 Plus**.
+Un firmware basé sur [Bruce](https://github.com/pr3y/Bruce), le firmware ESP32 open-source à tout faire, adapté pour le **Lilygo T-Embed CC1101 Plus**.
 
-## Firmware inclus
+Cette version garde toute la puissance de Bruce et y ajoute une interface repensée, un chatbot IA intégré et des mini-jeux jouables directement sur l'appareil.
 
-- Fichier : `papio.bin`
-- Taille : 4,230,880 octets
-- SHA-256 : `bfa2d5adb465eabeedf357aa5d4aa0e139f3651bfbb1a8dc09d613af04827c3a`
-- Cible : ESP32-S3
-- Flash : 16 MB
-- Adresse utilisée : `0x00000000`
+![Bruce Mod Banner]
 
-Le binaire fourni contient une image ESP et une seconde image à `0x10000`, avec une table de partitions à `0x8000`. Le site le traite donc comme une image fusionnée et l'écrit depuis `0x0`.
+## ✨ Nouveautés par rapport à Bruce original
 
-## Utilisation
+- 🎨 **Interface revue** — menus retravaillés, meilleure lisibilité sur l'écran du T-Embed, navigation plus fluide
+- 🤖 **Chatbot IA intégré** — assistant conversationnel via l'API Groq, directement accessible depuis le menu principal
+- 🎮 **Mini-jeux** — Snake, Tetris et d'autres classiques, jouables au clavier/joystick de l'appareil
+- 🛠️ Toutes les fonctionnalités offensives/red team de Bruce restent disponibles (WiFi, BLE, RF, IR, NFC, etc.)
 
-1. Héberger ce dossier sur un site HTTPS, ou lancer un serveur local.
-2. Utiliser Chrome ou Edge avec Web Serial.
-3. Brancher le T-Embed CC1101 Plus en USB.
-4. Cliquer sur **CONNECT DEVICE**.
-5. Mettre la carte en mode bootloader si elle n'est pas détectée automatiquement.
-6. Cliquer sur **FLASH PAPIO**.
+## 📷 Aperçu
 
-L'option **Clean install** efface toute la flash avant l'écriture : elle est volontairement désactivée par défaut.
+| Menu principal | Chat IA | Jeux |
+|---|---|---|
 
-## Dépendance
 
-Le site utilise `esptool-js` 0.6.1 depuis le CDN officiel du projet Espressif.
+## 🔧 Matériel supporté
+
+- **Lilygo T-Embed CC1101 Plus** (cible principale de ce fork)
+
+## 🚀 Installation
+
+### Flash rapide (recommandé) — aucune commande nécessaire
+Pas besoin d'installer quoi que ce soit ni de taper la moindre commande : tout se fait dans le navigateur.
+
+👉 **[luisdu26.github.io/papio](https://luisdu26.github.io/papio/)**
+
+1. Ouvrez le site avec **Chrome** ou **Edge** (nécessaire pour le Web Serial)
+2. Branchez votre **T-Embed CC1101 Plus** en USB
+3. Cliquez sur **Connect Device** et sélectionnez le port série
+4. Cliquez sur **Flash PAPIO**
+
+C'est tout — le firmware est flashé directement depuis le site, sans ligne de commande.
+
+### Compilation depuis les sources
+
+```bash
+git clone https://github.com/<ton-user>/<ton-repo>.git
+cd <ton-repo>
+# build avec PlatformIO
+pio run -e t-embed-cc1101plus
+pio run -e t-embed-cc1101plus -t upload
+```
+
+## 🤖 Configurer le chatbot IA
+
+Le chatbot utilise l'API [Groq] une clef est deja dans le firmware
+
+## 🎮 Jeux disponibles
+
+- 🐍 Snake
+- 🧱 Tetris
+- *(ajoute ici les autres jeux au fur et à mesure)*
+
+Accessibles depuis le menu **Games** du menu principal.
+
+## 🙏 Crédits
+
+- Ce projet est un fork de [Bruce](https://github.com/pr3y/Bruce) par pr3y et les contributeurs de la communauté Bruce
+- Chatbot propulsé par l'API [Groq](https://groq.com/)
+
+## ⚠️ Avertissement
+
+Comme le projet original, ce firmware inclut des fonctionnalités offensives de sécurité (WiFi, BLE, RF, etc.) destinées **uniquement** à des tests de sécurité légaux et autorisés. Toute utilisation malveillante ou non autorisée est strictement interdite. Utilisation à tes propres risques.
+
+## 📄 Licence
+
+Distribué sous licence **AGPL-3.0**, comme le projet Bruce original.
