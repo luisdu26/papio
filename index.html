@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PAPIO // WEB FLASHER</title>
+  <meta name="description" content="Flasheur web Papio pour LILYGO T-Embed CC1101 Plus">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="scanlines"></div>
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">PAPIO</div>
+        <div class="tag">ALIEN FIRMWARE // WEB FLASHER</div>
+      </div>
+      <div id="connectionBadge" class="badge offline">● DISCONNECTED</div>
+    </header>
+
+    <section class="hero panel">
+      <div class="eyebrow">TARGET DEVICE</div>
+      <h1>T-EMBED <span>CC1101 PLUS</span></h1>
+      <p class="muted">ESP32-S3 · 16 MB FLASH · PAPIO FIRMWARE</p>
+
+      <div class="device-grid">
+        <div>
+          <div class="spec-row"><span>MCU</span><b>ESP32-S3</b></div>
+          <div class="spec-row"><span>FLASH</span><b>16 MB</b></div>
+          <div class="spec-row"><span>IMAGE</span><b id="fwSize">—</b></div>
+          <div class="spec-row"><span>OFFSET</span><b>0x00000000</b></div>
+          <div class="spec-row"><span>SHA-256</span><b id="fwHash">—</b></div>
+        </div>
+        <div class="status-box">
+          <div class="status-title">READY TO FLASH</div>
+          <div id="chipInfo">Connect the board to USB.</div>
+          <div class="tiny">Compatible target: T-Embed CC1101 Plus only</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="actions panel">
+      <div class="section-title">01 // CONNECTION</div>
+      <button id="connectBtn" class="btn primary">CONNECT DEVICE</button>
+      <div class="hint">Use Chrome or Edge with Web Serial. The browser will ask you to select the USB serial port.</div>
+    </section>
+
+    <section class="actions panel">
+      <div class="section-title">02 // FLASH</div>
+      <label class="check">
+        <input type="checkbox" id="eraseAll">
+        <span>Clean install — erase the complete 16 MB flash first</span>
+      </label>
+      <button id="flashBtn" class="btn flash" disabled>FLASH PAPIO</button>
+      <div class="progress-wrap">
+        <div id="progressBar" class="progress"></div>
+      </div>
+      <div id="progressText" class="progress-text">0%</div>
+    </section>
+
+    <section class="terminal panel">
+      <div class="terminal-head">
+        <span>03 // CONSOLE</span>
+        <button id="clearLog" class="mini">CLEAR</button>
+      </div>
+      <pre id="log"></pre>
+    </section>
+
+    <footer>
+      <span>PAPIO // T-EMBED CC1101 PLUS</span>
+      <span>WEB SERIAL · ESPTOOL-JS</span>
+    </footer>
+  </main>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

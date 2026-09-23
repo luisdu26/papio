@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Space+Grotesk:wght@400;600;700&display=swap');
+
+:root{
+  --bg:#080b08; --panel:#0e130e; --line:#243a24;
+  --orange:#ff8a2a; --orange2:#ffb25e;
+  --green:#39ff14; --green2:#9aff84;
+  --text:#e9f2e5; --muted:#839381; --danger:#ff4f4f;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:#050705;color:var(--text)}
+body{
+  font-family:"Space Grotesk",system-ui,sans-serif;
+  background:
+    linear-gradient(rgba(57,255,20,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,138,42,.035) 1px,transparent 1px),
+    #070907;
+  background-size:28px 28px;
+}
+.scanlines{position:fixed;inset:0;pointer-events:none;opacity:.08;
+  background:repeating-linear-gradient(0deg,transparent 0 3px,#fff 4px);z-index:5}
+.shell{width:min(980px,calc(100% - 28px));margin:28px auto;position:relative}
+.topbar{display:flex;justify-content:space-between;align-items:center;
+  padding:18px 20px;border:1px solid var(--orange);border-bottom:0;
+  background:#0a0c09}
+.brand{display:flex;gap:18px;align-items:baseline}
+.logo{font-family:"Share Tech Mono";font-size:34px;color:var(--orange);letter-spacing:3px}
+.tag{font:12px "Share Tech Mono";color:var(--muted)}
+.badge{font:13px "Share Tech Mono";padding:8px 12px;border:1px solid}
+.offline{color:#777;border-color:#454545}.online{color:var(--green);border-color:var(--green)}
+.panel{border:1px solid var(--orange);background:rgba(10,14,10,.94);
+  box-shadow:0 0 22px rgba(255,138,42,.06);padding:24px;margin-bottom:14px}
+.hero{border-top:2px solid var(--orange)}
+.eyebrow,.section-title{font:12px "Share Tech Mono";color:var(--orange);letter-spacing:2px}
+h1{font:clamp(34px,6vw,64px);line-height:.95;margin:10px 0;color:#fff}
+h1 span{color:var(--orange)}
+.muted{color:var(--muted)}
+.device-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px}
+.spec-row{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);
+  padding:10px 0;font-family:"Share Tech Mono";font-size:14px}
+.spec-row span{color:var(--muted)} .spec-row b{color:var(--orange2)}
+.status-box{border:1px solid var(--green);padding:20px;min-height:150px}
+.status-title{font:24px "Share Tech Mono";color:var(--green);margin-bottom:16px}
+.tiny,.hint{color:var(--muted);font-size:13px;line-height:1.5;margin-top:10px}
+.btn{width:100%;border:1px solid;padding:17px;background:#101610;
+  color:#fff;font:18px "Share Tech Mono";cursor:pointer;transition:.15s}
+.btn:hover:not(:disabled){transform:translateY(-1px);filter:brightness(1.15)}
+.btn:disabled{opacity:.35;cursor:not-allowed}
+.primary{border-color:var(--orange);color:var(--orange)}
+.flash{border-color:var(--green);color:var(--green);background:#10210d;margin-top:16px}
+.check{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:14px}
+.check input{accent-color:var(--green);width:18px;height:18px}
+.progress-wrap{height:10px;border:1px solid var(--line);margin-top:18px;background:#050805}
+.progress{height:100%;width:0;background:var(--green);box-shadow:0 0 12px rgba(57,255,20,.5);transition:width .12s}
+.progress-text{text-align:right;color:var(--green);font:12px "Share Tech Mono";margin-top:7px}
+.terminal{padding:0;overflow:hidden}
+.terminal-head{display:flex;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--line);
+  font:12px "Share Tech Mono";color:var(--orange)}
+.mini{background:none;border:1px solid var(--line);color:var(--muted);padding:5px 10px;cursor:pointer}
+pre{margin:0;padding:18px;min-height:210px;max-height:320px;overflow:auto;
+  color:var(--green2);font:12px/1.5 "Share Tech Mono";white-space:pre-wrap}
+footer{display:flex;justify-content:space-between;color:#566255;font:11px "Share Tech Mono";padding:12px 4px 30px}
+@media(max-width:720px){
+  .device-grid{grid-template-columns:1fr}
+  .brand{display:block}.tag{display:block;margin-top:4px}
+  .badge{font-size:10px}
+  footer{display:block;line-height:2}
+}
